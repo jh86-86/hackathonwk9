@@ -1,12 +1,12 @@
-import React from 'react';
-import '../App/app.css';
+// import React from 'react';
+// import '../App/app.css';
 
-function FilterButton({  }) {
-  return (
-    <button onClick={() => handleClick()}>
-      Add {}
-    </button>
-  );
-}
+// function FilterButton({ dispatch}) {
+//   return (
+//     <button onClick={() => dispatch()}>
+//       Add 
+//     </button>
+//   );
+// }
 
-export default FilterButton;
+// export default FilterButton;
