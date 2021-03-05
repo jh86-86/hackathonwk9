@@ -1,5 +1,5 @@
 import React from 'react';
-import {useState} from 'react';
+import {useState, useEffect} from 'react';
 
 const BACKEND_URL = "http://localhost:5000";
 
@@ -14,9 +14,10 @@ function DisplayData({state}){
 
 useEffect(()=> {
     async function getRecipe(){
-    let response =  await fetch(`${BACKEND_URL}/receipes/id=${state}`);
-     let data = await response.json();
+    let response =  await fetch(`${BACKEND_URL}/recipes/${state.number}`);
+    let data = await response.json();
       setDataState(data);
+      console.log(data);
     //  let categoryDish= data.CategoryDish;
     //  setTitle(data.Title);
     //  let theme=   data.Theme;  
@@ -28,12 +29,15 @@ useEffect(()=> {
     // let picture= data.Picture ;
     }
     getRecipe();
-  } ,[]);
+  } ,[state]);
 
   
  return (
-   <div>
-     <p>{dataState.Title}</p>
+   <div id="recipe">
+     <h2>{dataState.title}</h2>
+     <p>PrepTime: {dataState.prepTime}</p>
+     <p>Portions: {dataState.portions}</p>
+    
     </div> 
  )
 }

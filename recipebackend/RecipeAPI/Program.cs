@@ -18,6 +18,13 @@ namespace RecipeAPI
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
             Host.CreateDefaultBuilder(args)
+            //CORS
+            // .ConfigureLogging(logging =>
+            //     {
+            //         logging.ClearProviders();
+            //         logging.AddConsole();
+            //     })
+            //CORS
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStartup<Startup>();

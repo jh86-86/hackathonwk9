@@ -1,10 +1,11 @@
 //import logo from "./logo.svg";
 import "./App.css";
 import React,{useReducer,useState, useEffect} from 'react';
+import DisplayData from '../DisplayData';
 //import FilterButton from '../Buttons/index'
 
 const initialState = {
-  number:0,
+  number:1,
 };
 
 
@@ -50,6 +51,7 @@ function App() {
       <button onClick={()=>{dispatch({type: "Beverages", payload:'2'})}}> Beverages</button>
       <button onClick={()=>{dispatch({type: "Desserts", payload: '3'})}}> Desserts</button>
       <button onClick={()=>{dispatch({type: "Mains", payload:'4'})}}> Main</button>
+      <DisplayData state={state}/>
       
       </div>
     </div>
