@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 namespace RecipeAPI
 {
     [ApiController]
-    [Route("books")]
-    public class BookController : ControllerBase
+    [Route("recipes")]
+    public class RecipeController : ControllerBase
     {
-        private readonly IRepository<Book> _bookRepository;
+        private readonly IRepository<Recipe> _recipeRepository;
 
-        public BookController(IRepository<Book> bookRepository)
+        public RecipeController(IRepository<Recipe> recipeRepository)
         {
-            _bookRepository = bookRepository;
+            _recipeRepository = recipeRepository;
         }
 
         // [HttpGet]
@@ -24,26 +24,26 @@ namespace RecipeAPI
         // }
 
         [HttpGet]
-        public IEnumerable<Book> Search(string s)
+        public IEnumerable<Recipe> Search(string s)
         {
             if (!String.IsNullOrEmpty(s))
             {
                 Console.WriteLine("query done");
-                return _bookRepository.Search(s);
+                return _recipeRepository.Search(s);
             }
             else
             {
                 Console.WriteLine("query na");
-                return _bookRepository.GetAll();
+                return _recipeRepository.GetAll();
             }
         }
 
 
 
         [HttpGet("{id}")]
-        public async Task<Book> Get(long id)
+        public async Task<Recipe> Get(long id)
         {
-            return await _bookRepository.Get(id);
+            return await _recipeRepository.Get(id);
         }
 
         [HttpDelete("{id}")]
@@ -67,26 +67,26 @@ namespace RecipeAPI
 
 
         [HttpPut("{id}")]
-        public IActionResult Update(long id, [FromBody] Book book)
+        public IActionResult Update(int id, [FromBody] Recipe recipe)
         {
             try
             {
-                var myBook = _bookRepository.Update(new Book { Id = id, Title = book.Title, Author = book.Author });
-                return Ok(myBook);
+                var myRecipe = _recipeRepository.Update(new Recipe { Id = id, Title = recipe.Title });
+                return Ok(myRecipe);
             }
             catch (Exception)
             {
-                return NotFound($"Book with id {id} not found");
+                return NotFound($"Recipe with id {id} not found");
             }
         }
 
         [HttpPost]
-        public IActionResult Insert([FromBody] Book book)
+        public IActionResult Insert([FromBody] Recipe recipe)
         {
             try
             {
-                var myBook = _bookRepository.Insert(book);
-                return Ok(myBook);
+                var myRecipe = _recipeRepository.Insert(recipe);
+                return Ok(myRecipe);
             }
             catch (Exception)
             {
