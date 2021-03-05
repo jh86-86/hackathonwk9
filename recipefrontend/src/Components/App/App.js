@@ -45,12 +45,12 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Recipes</h1>
+      <h1>RECIPES</h1>
       <div className="Buttons">
       <button onClick={()=>{dispatch({type: "Snacks", payload:'1' })}}> Snacks</button>
       <button onClick={()=>{dispatch({type: "Beverages", payload:'2'})}}> Beverages</button>
-      <button onClick={()=>{dispatch({type: "Desserts", payload: '3'})}}> Desserts</button>
-      <button onClick={()=>{dispatch({type: "Mains", payload:'4'})}}> Main</button>
+      <button onClick={()=>{dispatch({type: "Desserts", payload: '4'})}}> Desserts</button>
+      <button onClick={()=>{dispatch({type: "Mains", payload:'3'})}}> Main</button>
       <DisplayData state={state}/>
       
       </div>

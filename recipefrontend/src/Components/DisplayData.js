@@ -35,11 +35,10 @@ useEffect(()=> {
  return (
    <div id="recipe">
      <h2>{dataState.title}</h2>
-     <p>PrepTime: {dataState.prepTime}</p>
-     <p>Portions: {dataState.portions}</p>
+     <h3>PrepTime: {dataState.prepTime}</h3>
      <p>Ingredient: {dataState.ingredient}</p>
      <p>Instruction: {dataState.instruction}</p>
-     <p>Diet: {dataState.theme}</p>
+     
      {/* <img src={} /> */}
     </div> 
  )
