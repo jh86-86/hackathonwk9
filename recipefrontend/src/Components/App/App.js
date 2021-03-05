@@ -1,6 +1,6 @@
 //import logo from "./logo.svg";
 import "./App.css";
-import React,{useReducer,useState} from 'react';
+import React,{useReducer,useState, useEffect} from 'react';
 //import FilterButton from '../Buttons/index'
 
 const initialState = {};
@@ -11,12 +11,12 @@ function App() {
  
   const [state, dispatch] = useReducer(reducer, initialState);
 
-
+  
   function reducer(state, action) {
     switch (action.type) {
       case "Snacks":
-        // return { };
         console.log("snacks button pressed");
+        // return { };
       break;
       case "Beverages":
         // return { };
