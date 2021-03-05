@@ -3,32 +3,36 @@ import "./App.css";
 import React,{useReducer,useState, useEffect} from 'react';
 //import FilterButton from '../Buttons/index'
 
-const initialState = {};
+const initialState = {
+  number:0,
+};
 
 
 
 function App() {
  
   const [state, dispatch] = useReducer(reducer, initialState);
-
+  console.log(state);
   
   function reducer(state, action) {
     switch (action.type) {
       case "Snacks":
         console.log("snacks button pressed");
-        // return { };
+       
+        return {...state, number: action.payload};
+        
       break;
       case "Beverages":
-        // return { };
         console.log("beverages button pressed");
+        return {...state, number: action.payload};
       break;
       case "Desserts":
-        // return { };
         console.log("desserts button pressed");
+        return {...state, number: action.payload};
       break;
       case "Mains":
-        // return { };
         console.log("mains button pressed");
+        return {...state, number: action.payload};
       break;
       default:
         throw new Error();
@@ -42,10 +46,10 @@ function App() {
     <div className="App">
       <h1>Recipes</h1>
       <div className="Buttons">
-      <button onClick={()=>{dispatch({type: "Snacks"})}}> Snacks</button>
-      <button onClick={()=>{dispatch({type: "Beverages"})}}> Beverages</button>
-      <button onClick={()=>{dispatch({type: "Desserts"})}}> Desserts</button>
-      <button onClick={()=>{dispatch({type: "Mains"})}}> Main</button>
+      <button onClick={()=>{dispatch({type: "Snacks", payload:'1' })}}> Snacks</button>
+      <button onClick={()=>{dispatch({type: "Beverages", payload:'2'})}}> Beverages</button>
+      <button onClick={()=>{dispatch({type: "Desserts", payload: '3'})}}> Desserts</button>
+      <button onClick={()=>{dispatch({type: "Mains", payload:'4'})}}> Main</button>
       
       </div>
     </div>
